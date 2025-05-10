@@ -1,0 +1,16 @@
+H:\Skeleton Project\Skeleton\Testing6\obj\Debug\TestingAgn.csproj.AssemblyReference.cache
+H:\Skeleton Project\Skeleton\Testing6\obj\Debug\TestingAgn.csproj.CoreCompileInputs.cache
+H:\Skeleton Project\Skeleton\Testing6\obj\Debug\Testing6.dll
+H:\Skeleton Project\Skeleton\Testing6\obj\Debug\Testing6.pdb
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Testing6.dll
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Testing6.pdb
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\ClassLibrary.dll
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\ClassLibrary.pdb
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+H:\Skeleton Project\Skeleton\Testing6\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+H:\Skeleton Project\Skeleton\Testing6\obj\Debug\TestingAgn.csproj.Up2Date
