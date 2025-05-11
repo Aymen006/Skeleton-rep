@@ -9,6 +9,17 @@ namespace TestingApp
     {
         // Test for Find method
         [TestMethod]
+        public void InstanceOK()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            //TEST TO SEE that is exists
+            Assert.IsNotNull(AnAgent);
+        }
+
+
+        // Test for Find method
+        [TestMethod]
         public void FindMethodOk()
         {
             // Create an instance of the class
