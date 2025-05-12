@@ -10,19 +10,19 @@
     <form id="form1" runat="server">
         <p>
             <asp:Label ID="lblAgentId" runat="server" style="z-index: 1; left: 12px; position: absolute; top: 96px; right: 1412px" Text="AgentId"></asp:Label>
+             <asp:TextBox ID="txtAgentId" runat="server" OnTextChanged="TextBox1_TextChanged" style="z-index: 1; left: 122px; top: 89px; position: absolute; height: 22px; width: 135px"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="lblDescription" runat="server" style="z-index: 1; left: 12px; top: 165px; position: absolute" Text="Description" width="49px"></asp:Label>
-            <asp:TextBox ID="txtAgentId" runat="server" OnTextChanged="TextBox1_TextChanged" style="z-index: 1; left: 122px; top: 89px; position: absolute; height: 22px; width: 135px"></asp:TextBox>
             <asp:TextBox ID="txtAgentName" runat="server" height="22px" style="z-index: 1; left: 121px; top: 125px; position: absolute" width="128px"></asp:TextBox>
+            <asp:Label ID="lblAgentName" runat="server" style="z-index: 1; left: 12px; top: 129px; position: absolute" Text="Agent Name" width="49px"></asp:Label>
         </p>
         <p>
             <asp:TextBox ID="txtDescription" runat="server" height="22px" style="z-index: 1; left: 121px; top: 165px; position: absolute" width="128px"></asp:TextBox>
+            <asp:Label ID="lblDescription" runat="server" style="z-index: 1; left: 12px; top: 165px; position: absolute" Text="Description" width="49px"></asp:Label>
         </p>
         <p>
             <asp:Label ID="lblCategory" runat="server" style="z-index: 1; left: 12px; top: 205px; position: absolute" Text="Category" width="49px"></asp:Label>
             <asp:TextBox ID="txtCategory" runat="server" height="22px" style="z-index: 1; left: 121px; top: 204px; position: absolute" width="128px"></asp:TextBox>
-            <asp:Label ID="lblAgentName" runat="server" style="z-index: 1; left: 12px; top: 129px; position: absolute" Text="Agent Name" width="49px"></asp:Label>
         </p>
         <p>
             <asp:Label ID="lblIntegration" runat="server" style="z-index: 1; left: 12px; top: 243px; position: absolute" Text="Integration Type" width="49px"></asp:Label>
@@ -30,6 +30,7 @@
         </p>
         <p>
             <asp:Label ID="lblStatus" runat="server" style="z-index: 1; left: 12px; top: 281px; position: absolute" Text="Status" width="49px"></asp:Label>
+            <asp:CheckBox ID="chkActive" runat="server" height="22px" style="z-index: 1; left: 125px; top: 281px; position: absolute" Text="Active" width="128px" />
         </p>
         <p>
             <asp:Label ID="lblUpdated" runat="server" style="z-index: 1; left: 12px; top: 319px; position: absolute" Text="Updated As" width="49px"></asp:Label>
@@ -38,7 +39,6 @@
         <p>
             <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 12px; position: absolute; bottom: 268px" Text="Price" width="49px"></asp:Label>
             <asp:TextBox ID="txtPrice" runat="server" height="22px" style="z-index: 1; left: 118px; top: 380px; position: absolute" width="128px"></asp:TextBox>
-            <asp:CheckBox ID="chkActive" runat="server" height="22px" style="z-index: 1; left: 125px; top: 281px; position: absolute" Text="Active" width="128px" />
         </p>
         <p>
             &nbsp;</p>

@@ -165,20 +165,23 @@ namespace ClassLibrary
         // Enhanced Find method for all the tests
         public Boolean Find(int AgentId)
         {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@AgentId", AgentId);
+            DB.Execute("sproc_tblAgent_FilterByAgentId");
+
             // For testing purposes, we'll populate with test data
-            if (AgentId == 1)
+            if (DB.Count == 1)
             {
                 // Hard-coded values for AgentId = 1 based on your database screenshot
-                mAgentId = 1;
-                mAgentName = "Marketing Agent";
-                mDescr = "agent that is responsible for the marketing";
-                Description = "agent that is responsible for the marketing"; // Also set the auto-property
-                mCategory = "Business";
-                mIntegrationType = "API";
-                mStatus = true;
-                mUpdatedAt = Convert.ToDateTime("08/05/2023");
-                mPrice = 200.000;
-                mEmployeeId = 16;
+                mAgentId = Convert.ToInt32(DB.DataTable.Rows[0]["AgentId"]);
+                mAgentName = Convert.ToString(DB.DataTable.Rows[0]["AgentName"]);
+                mDescr = Convert.ToString(DB.DataTable.Rows[0]["Descr"]); // Also set the auto-property
+                mCategory = Convert.ToString(DB.DataTable.Rows[0]["Category"]);
+                mIntegrationType = Convert.ToString(DB.DataTable.Rows[0]["IntegrationType"]);
+                mStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["Status"]);
+                mUpdatedAt = Convert.ToDateTime(DB.DataTable.Rows[0]["UpdatedAt"]);
+                mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
+                mEmployeeId = Convert.ToInt32(DB.DataTable.Rows[0]["EmployeeId"]);
                 return true;
             }
             else

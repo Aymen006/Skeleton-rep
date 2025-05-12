@@ -16,6 +16,11 @@ public partial class _1Viewer : System.Web.UI.Page
         AnAgent = (clsAgent)Session["AnAgent"];
         //Display the agent name for this entry
         Response.Write(AnAgent.AgentName);
-
+        Response.Write(AnAgent.Descr);
+        Response.Write(AnAgent.Category);
+        Response.Write(AnAgent.IntegrationType);
+        Response.Write(AnAgent.Status);
+        Response.Write(AnAgent.UpdatedAt);
+        Response.Write(AnAgent.Price);
     }
 }
