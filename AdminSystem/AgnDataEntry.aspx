@@ -14,7 +14,8 @@
         </p>
         <p>
             <asp:TextBox ID="txtAgentName" runat="server" height="22px" style="z-index: 1; left: 121px; top: 125px; position: absolute" width="128px"></asp:TextBox>
-            <asp:Label ID="lblAgentName" runat="server" style="z-index: 1; left: 12px; top: 129px; position: absolute" Text="Agent Name" width="49px"></asp:Label>
+            <asp:Label ID="lblAgentName" runat="server" style="z-index: 1; left: 13px; top: 125px; position: absolute" Text="Agent Name" width="49px"></asp:Label>
+            <asp:Button ID="btnFind" runat="server" Height="26px" OnClick="btnFind_Click" Text="Find" Width="38px" />
         </p>
         <p>
             <asp:TextBox ID="txtDescription" runat="server" height="22px" style="z-index: 1; left: 121px; top: 165px; position: absolute" width="128px"></asp:TextBox>
@@ -33,11 +34,11 @@
             <asp:CheckBox ID="chkActive" runat="server" height="22px" style="z-index: 1; left: 125px; top: 281px; position: absolute" Text="Active" width="128px" />
         </p>
         <p>
-            <asp:Label ID="lblUpdated" runat="server" style="z-index: 1; left: 12px; top: 319px; position: absolute" Text="Updated As" width="49px"></asp:Label>
-            <asp:TextBox ID="txtUpdated" runat="server" height="22px" style="z-index: 1; left: 121px; top: 317px; position: absolute" width="128px"></asp:TextBox>
+            <asp:Label ID="lblUpdatedAt" runat="server" style="z-index: 1; left: 12px; top: 319px; position: absolute" Text="Updated At" width="49px"></asp:Label>
+            <asp:TextBox ID="txtUpdatedAt" runat="server" height="22px" style="z-index: 1; left: 121px; top: 317px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 12px; position: absolute; bottom: 268px" Text="Price" width="49px"></asp:Label>
+            <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 16px; position: absolute; bottom: 0px" Text="Price" width="49px"></asp:Label>
             <asp:TextBox ID="txtPrice" runat="server" height="22px" style="z-index: 1; left: 118px; top: 380px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <p>

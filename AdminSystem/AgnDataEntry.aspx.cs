@@ -46,4 +46,32 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Navigate to the view page
         Response.Redirect("AgnViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address class 
+        clsAgent AnAgent = new clsAgent();
+        //create a variable to store the primary key
+        Int32 AgentId;
+        //create a variable to store the resault of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        AgentId = Convert.ToInt32(txtAgentId.Text);
+        //find the record
+        Found = AnAgent.Find(AgentId);
+        if (Found == true)
+        {
+            //display the values of the properties in the form 
+            txtAgentName.Text = AnAgent.AgentName;
+            txtDescription.Text = AnAgent.Descr;
+            txtCategory.Text = AnAgent.Category;
+            txtIntegrarion.Text = AnAgent.IntegrationType;
+            chkActive.Checked = AnAgent.Status;
+            txtUpdatedAt.Text = AnAgent.UpdatedAt.ToString();
+            txtPrice.Text = AnAgent.Price.ToString();
+        }
+            
+
+
+    }
 }
