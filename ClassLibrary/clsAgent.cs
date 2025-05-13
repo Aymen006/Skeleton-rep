@@ -167,7 +167,7 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@AgentId", AgentId);
-            DB.Execute("sproc_tblAgent_FilterByAgentId");
+            DB.Execute("sproc_tblAgents_FilterByAgentId");
 
             // For testing purposes, we'll populate with test data
             if (DB.Count == 1)

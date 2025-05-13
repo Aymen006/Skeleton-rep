@@ -27,7 +27,7 @@ namespace TestingApp
             // Boolean variable to store result
             Boolean Found = false;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Assert the result
@@ -45,11 +45,11 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the AgentId property
-            if (AnAgent.AgentId != 1)
+            if (AnAgent.AgentId != 8)
             {
                 OK = false;
             }
@@ -68,11 +68,11 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the AgentName property
-            if (AnAgent.AgentName != "Marketing Agent")
+            if (AnAgent.AgentName != "Connecting")
             {
                 OK = false;
             }
@@ -91,11 +91,11 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the Description property
-            if (AnAgent.Description != "agent that is responsible for the marketing")
+            if (AnAgent.Descr != "Helping")
             {
                 OK = false;
             }
@@ -114,11 +114,11 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the Category property
-            if (AnAgent.Category != "Business")
+            if (AnAgent.Category != "Support")
             {
                 OK = false;
             }
@@ -137,11 +137,11 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the IntegrationType property
-            if (AnAgent.IntegrationType != "API")
+            if (AnAgent.IntegrationType != "Local")
             {
                 OK = false;
             }
@@ -160,7 +160,7 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the Status property
@@ -183,11 +183,11 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the UpdatedAt property
-            DateTime TestDate = Convert.ToDateTime("08/05/2023");
+            DateTime TestDate = Convert.ToDateTime("13/05/2025");
             if (AnAgent.UpdatedAt != TestDate)
             {
                 OK = false;
@@ -207,7 +207,7 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the Price property
@@ -230,11 +230,11 @@ namespace TestingApp
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Test data
-            Int32 AgentId = 1;
+            Int32 AgentId = 8;
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the EmployeeId property
-            if (AnAgent.EmployeeId != 16)
+            if (AnAgent.EmployeeId != 7)
             {
                 OK = false;
             }
