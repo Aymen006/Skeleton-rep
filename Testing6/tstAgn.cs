@@ -1,12 +1,37 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+// using System.Security.Cryptography; // This using is not currently used by this code. Can be kept or removed.
 
 namespace TestingApp
 {
+    // This class defines test data but isn't directly used by ValidMethodeOK in clsAgentTests in this corrected version.
+    // It could be used by other tests or if ValidMethodeOK were part of this class.
+    [TestClass]
+    public class tstAgent
+    {
+        //good test data
+        //create some test data to pass the methode
+        string AgentName = "Connecting";
+        string Descr = "Helping";
+        string Category = "Support";
+        string IntegrationType = "Local";
+        string UpdatedAt = DateTime.Now.ToShortDateString();
+    }
+
     [TestClass]
     public class clsAgentTests
     {
+        // --- Copied test data fields here to be accessible by ValidMethodeOK ---
+        // good test data
+        // create some test data to pass the methode
+        string AgentName = "Connecting";
+        string Descr = "Helping";
+        string Category = "Support";
+        string IntegrationType = "Local";
+        string UpdatedAt = DateTime.Now.ToShortDateString();
+        // --- End of copied test data fields ---
+
         // Test for Find method
         [TestMethod]
         public void InstanceOK()
@@ -95,7 +120,7 @@ namespace TestingApp
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the Description property
-            if (AnAgent.Descr != "Helping")
+            if (AnAgent.Descr != "Helping") // Assuming Descr is the property in clsAgent
             {
                 OK = false;
             }
@@ -187,7 +212,7 @@ namespace TestingApp
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the UpdatedAt property
-            DateTime TestDate = Convert.ToDateTime("13/05/2025");
+            DateTime TestDate = Convert.ToDateTime("13/05/2025"); // Ensure your Find method returns this for AgentId 8
             if (AnAgent.UpdatedAt != TestDate)
             {
                 OK = false;
@@ -211,7 +236,8 @@ namespace TestingApp
             // Invoke the method
             Found = AnAgent.Find(AgentId);
             // Check the Price property
-            if (AnAgent.Price != 200.000)
+            // For floating point comparisons, it's better to check within a tolerance
+            if (Math.Abs(AnAgent.Price - 200.000) > 0.0001)
             {
                 OK = false;
             }
@@ -250,8 +276,6 @@ namespace TestingApp
             clsAgent AnAgent = new clsAgent();
             // Boolean variable to store result
             Boolean Found = false;
-            // Boolean variable to record if data is OK
-            Boolean OK = true;
             // Test data - using a record that doesn't exist
             Int32 AgentId = 9999;
             // Invoke the method
@@ -259,6 +283,20 @@ namespace TestingApp
             // Test to see that the result is correct
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+        public void ValidMethodeOK()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            // string variable to store any error message
+            string Error = "";
+
+            //invoke the methode
+            // Now AgentName, Descr, etc. are accessible as they are fields of this clsAgentTests class
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            //test to see that the resault is correct
+            Assert.AreEqual(Error, "");
+        }
     }
 }
-
