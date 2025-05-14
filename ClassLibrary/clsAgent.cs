@@ -190,21 +190,23 @@ namespace ClassLibrary
                 return false;
             }
         }
-        //function for the public va;idation methode
+        //function for the public validation methode
         public string Valid(string AgentName,
                             string Descr,
                             string Category,
                             string IntegrationType,
                             string UpdatedAt)
         {
-            // Minimal implementation: return empty string to satisfy the method signature
-            // and make the ValidMethodeOK test pass if this is the only logic.
-            return "";
+            //create a string variable to store the error 
+            String Error = "";
+            //if the AgentName is Blank
+            if (AgentName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Agent Nmae may not be Blank : ";
+            }        
+            // return any error message
+            return Error;
         }
-
-
-
-
-
     }
 }
