@@ -190,23 +190,98 @@ namespace ClassLibrary
                 return false;
             }
         }
-        //function for the public validation methode
+        // Improved validation function for clsAgent.cs
         public string Valid(string AgentName,
-                            string Descr,
-                            string Category,
-                            string IntegrationType,
-                            string UpdatedAt)
+                    string Descr,
+                    string Category,
+                    string IntegrationType,
+                    string UpdatedAt)
         {
             //create a string variable to store the error 
             String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
             //if the AgentName is Blank
             if (AgentName.Length == 0)
             {
                 //record the error
-                Error = Error + "The Agent Nmae may not be Blank : ";
-            }        
+                Error = Error + "The Agent Name may not be blank : ";
+            }
+
+            //if the AgentName is too long
+            if (AgentName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Agent Name must be 50 characters or less : ";
+            }
+
+            //if the Description is blank
+            if (Descr.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Description may not be blank : ";
+            }
+
+            // Note: We do not check for maximum length of Descr since it's defined as varchar(MAX) in the database
+            // If you want to enforce a maximum length, add a check here
+
+            //if the Category is blank
+            if (Category.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Category may not be blank : ";
+            }
+
+            //if the Category is too long
+            if (Category.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Category must be 50 characters or less : ";
+            }
+
+            //if the IntegrationType is blank
+            if (IntegrationType.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Integration Type may not be blank : ";
+            }
+
+            //if the IntegrationType is too long
+            if (IntegrationType.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Integration Type must be 50 characters or less : ";
+            }
+
+            // Date validation code
+            try
+            {
+                //copy the UpdatedAt value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(UpdatedAt);
+                //check to see if the date is less than today's date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
             // return any error message
             return Error;
         }
+
+
     }
 }

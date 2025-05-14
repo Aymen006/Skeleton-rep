@@ -409,5 +409,447 @@ namespace TestingApp
             // Test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+
+        // DATE TESTS
+
+        [TestMethod]
+        public void UpdatedAtExtremeMin()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            // string variable to store any error message
+            string Error = "";
+            // Create a variable to store the test date data
+            DateTime TestDate;
+            // Set the date to today's date
+            TestDate = DateTime.Now.Date;
+            // Change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            // Convert the date variable to a string variable
+            string UpdatedAt = TestDate.ToString();
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UpdatedAtMinLessOne()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            // string variable to store any error message
+            string Error = "";
+            // Create a variable to store the test date data
+            DateTime TestDate;
+            // Set the date to today's date
+            TestDate = DateTime.Now.Date;
+            // Change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            // Convert the date variable to a string variable
+            string UpdatedAt = TestDate.ToString();
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UpdatedAtMin()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            // string variable to store any error message
+            string Error = "";
+            // Create a variable to store the test date data
+            DateTime TestDate;
+            // Set the date to today's date
+            TestDate = DateTime.Now.Date;
+            // Convert the date variable to a string variable
+            string UpdatedAt = TestDate.ToString();
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UpdatedAtMinPlusOne()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            // string variable to store any error message
+            string Error = "";
+            // Create a variable to store the test date data
+            DateTime TestDate;
+            // Set the date to today's date
+            TestDate = DateTime.Now.Date;
+            // Change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            // Convert the date variable to a string variable
+            string UpdatedAt = TestDate.ToString();
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UpdatedAtExtremeMax()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            // string variable to store any error message
+            string Error = "";
+            // Create a variable to store the test date data
+            DateTime TestDate;
+            // Set the date to today's date
+            TestDate = DateTime.Now.Date;
+            // Change the date to whatever the date is plus 100 years
+            TestDate = TestDate.AddYears(100);
+            // Convert the date variable to a string variable
+            string UpdatedAt = TestDate.ToString();
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UpdatedAtInvalidData()
+        {
+            // Create an instance of the class
+            clsAgent AnAgent = new clsAgent();
+            // string variable to store any error message
+            string Error = "";
+            // Set the UpdatedAt to a non-date value
+            string UpdatedAt = "this is not a date!";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        // INTEGRATION TYPE TESTS
+
+        [TestMethod]
+        public void IntegrationTypeMinLessOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should fail
+            string IntegrationType = "";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void IntegrationTypeMin()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string IntegrationType = "a";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void IntegrationTypeMaxLessOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string IntegrationType = "";
+            IntegrationType = IntegrationType.PadRight(49, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void IntegrationTypeMax()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string IntegrationType = "";
+            IntegrationType = IntegrationType.PadRight(50, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType,UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void IntegrationTypeMaxPlusOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should fail
+            string IntegrationType = "";
+            IntegrationType = IntegrationType.PadRight(51, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void IntegrationTypeExtremeMax()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should fail
+            string IntegrationType = "";
+            IntegrationType = IntegrationType.PadRight(500, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        // DESCRIPTION TESTS
+
+        [TestMethod]
+        public void DescrMinLessOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should fail
+            string Descr = "";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescrMin()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Descr = "a";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescrMinPlusOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Descr = "aa";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescrMid()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Descr = "";
+            Descr = Descr.PadRight(4000, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescrMaxLessOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Descr = "";
+            Descr = Descr.PadRight(7999, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescrMax()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass - using a large value for MAX
+            string Descr = "";
+            Descr = Descr.PadRight(8000, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DescrMaxPlusOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should fail if we implement a maximum length validation
+            string Descr = "";
+            Descr = Descr.PadRight(8001, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Since we're not enforcing a specific maximum for varchar(MAX), this should pass
+            // If you want to enforce a maximum length, change to Assert.AreNotEqual()
+            Assert.AreEqual(Error, "");
+        }
+
+        // CATEGORY TESTS
+
+        [TestMethod]
+        public void CategoryMinLessOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should fail
+            string Category = "";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CategoryMin()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Category = "a";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CategoryMinPlusOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Category = "aa";
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CategoryMid()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Category = "";
+            Category = Category.PadRight(25, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CategoryMaxLessOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Category = "";
+            Category = Category.PadRight(49, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CategoryMax()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should pass
+            string Category = "";
+            Category = Category.PadRight(50, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CategoryMaxPlusOne()
+        {
+            // Create an instance of the class we want to create
+            clsAgent AnAgent = new clsAgent();
+            // String variable to store any error message
+            String Error = "";
+            // This should fail
+            string Category = "";
+            Category = Category.PadRight(51, 'a');
+            // Invoke the method
+            Error = AnAgent.Valid(AgentName, Descr, Category, IntegrationType, UpdatedAt);
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
     }
 }
