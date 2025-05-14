@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,33 +20,64 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsAddress
-        clsAgent AnAgent = new clsAgent();
-        //capture the agent name
-        AnAgent.AgentName = txtAgentName.Text;
-        AnAgent.Description = txtDescription.Text;
-        AnAgent.Category = txtCategory.Text;
-        AnAgent.IntegrationType = txtIntegrarion.Text;
-        AnAgent.Status = chkActive.Checked;
-        AnAgent.UpdatedAt = Convert.ToDateTime(DateTime.Now);
+        //Capture input as strings first
+        string agentName = txtAgentName.Text;
+        string description = txtDescription.Text;
+        string category = txtCategory.Text;
+        string integrationType = txtIntegrarion.Text;
+        string price = txtPrice.Text;
+        string updatedAt = txtUpdatedAt.Text;
+        bool status = chkActive.Checked;
 
-        int price;
-        if (int.TryParse(txtPrice.Text, out price))
+        //create a new instance of clsAgent for validation
+        clsAgent AnAgent = new clsAgent();
+
+        //variable to store the error message
+        string Error = "";
+
+        //Validate the data
+        Error = AnAgent.Valid(agentName, description, category, integrationType, updatedAt);
+
+        if (Error == "")
         {
-            AnAgent.Price = price;
+            //capture the agent properties
+            AnAgent.AgentName = agentName;
+            AnAgent.Description = description;
+            AnAgent.Category = category;
+            AnAgent.IntegrationType = integrationType;
+            AnAgent.Status = status;
+
+            // Handle the date
+            AnAgent.UpdatedAt = Convert.ToDateTime(DateTime.Now);
+
+            // Handle the price
+            int parsedPrice;
+            if (int.TryParse(price, out parsedPrice))
+            {
+                AnAgent.Price = parsedPrice;
+            }
+            else
+            {
+                // Add price validation error
+                Error = "Please enter a valid numeric value for Price.";
+                lblError.Text = Error;
+                return;
+            }
+
+            //store the agent in the session object
+            Session["AnAgent"] = AnAgent;
+
+            //Navigate to the view page
+            Response.Redirect("AgnViewer.aspx");
         }
         else
         {
-            // Handle invalid input (e.g., show an error message)  
-            lblError.Text = "Please enter a valid numeric value for Price.";
-            return;
+            // display the error message
+            lblError.Text = Error;
         }
-        AnAgent.Price = Convert.ToInt32(txtPrice.Text);
-        //store the agent in the seesion object
-        Session["AnAgent"] = AnAgent;
-        //Navigate to the view page
-        Response.Redirect("AgnViewer.aspx");
     }
+
+
 
     protected void btnFind_Click(object sender, EventArgs e)
     {

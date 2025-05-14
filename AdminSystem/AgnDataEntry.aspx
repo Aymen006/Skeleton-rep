@@ -38,7 +38,7 @@
             <asp:TextBox ID="txtUpdatedAt" runat="server" height="22px" style="z-index: 1; left: 121px; top: 317px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 16px; position: absolute; bottom: 0px" Text="Price" width="49px"></asp:Label>
+            <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 12px; position: absolute; bottom: 276px" Text="Price" width="49px"></asp:Label>
             <asp:TextBox ID="txtPrice" runat="server" height="22px" style="z-index: 1; left: 118px; top: 380px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <p>
