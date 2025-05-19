@@ -1,1 +1,14 @@
+# Ignore .dll files
+*.dll
+
+# Ignore .pdb files
+*.pdb
+
+# Ignore .cache files
+*.cache
+
+# Ignore build directories (obj and bin)
+/bin/
+/obj/
+
 .vs/
