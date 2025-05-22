@@ -10,3 +10,9 @@ H:\Skeleton Project\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.Assembly
 H:\Skeleton Project\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
 H:\Skeleton Project\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.dll
 H:\Skeleton Project\Skeleton\ClassLibrary\obj\Debug\ClassLibrary.pdb
+H:\New folder\ClassLibrary\bin\Debug\ClassLibrary.dll
+H:\New folder\ClassLibrary\bin\Debug\ClassLibrary.pdb
+H:\New folder\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+H:\New folder\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+H:\New folder\ClassLibrary\obj\Debug\ClassLibrary.dll
+H:\New folder\ClassLibrary\obj\Debug\ClassLibrary.pdb
