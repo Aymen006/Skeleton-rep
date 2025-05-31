@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,5 +10,15 @@ public partial class TeamMainMenu : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btnAgents_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AgentLogin.aspx");
+    }
+
+    protected void btnCustomers_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CusList.aspx");
     }
 }
