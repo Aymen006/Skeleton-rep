@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ClassLibrary
@@ -6,9 +6,9 @@ namespace ClassLibrary
     public class clsAgentCollection
     {
         //private data member for the list
-        private List<clsAgent> mAgentList = new List<clsAgent>();
+        List<clsAgent> mAgentList = new List<clsAgent>();
         //private data member for ThisAgent
-        private clsAgent mThisAgent = new clsAgent();
+        clsAgent mThisAgent = new clsAgent();
 
         //constructor for the class
         public clsAgentCollection()
@@ -49,7 +49,10 @@ namespace ClassLibrary
                 //point at the next record
                 Index++;
             }
+
         }
+
+
 
         //public property for AgentList
         public List<clsAgent> AgentList
@@ -93,6 +96,65 @@ namespace ClassLibrary
                 //set the private data
                 mThisAgent = value;
             }
+        }
+
+        public int Add()
+        {
+            // Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add parameters for the stored procedure
+            DB.AddParameter("@AgentName", mThisAgent.AgentName);
+            DB.AddParameter("@Descr", mThisAgent.Descr);
+            DB.AddParameter("@Category", mThisAgent.Category);
+            DB.AddParameter("@IntegrationType", mThisAgent.IntegrationType);
+            DB.AddParameter("@Status", mThisAgent.Status);
+            DB.AddParameter("@UpdatedAt", mThisAgent.UpdatedAt);
+            DB.AddParameter("@Price", mThisAgent.Price);
+            DB.AddParameter("@EmployeeId", mThisAgent.EmployeeId);
+
+            // Execute the stored procedure and return the primary key
+            return DB.Execute("dbo.sproc_tblAgents_Insert");
+        }
+
+        public void Update()
+        {
+            // Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add parameters including the primary key
+            DB.AddParameter("@AgentId", mThisAgent.AgentId);
+            DB.AddParameter("@AgentName", mThisAgent.AgentName);
+            DB.AddParameter("@Descr", mThisAgent.Descr);
+            DB.AddParameter("@Category", mThisAgent.Category);
+            DB.AddParameter("@IntegrationType", mThisAgent.IntegrationType);
+            DB.AddParameter("@Status", mThisAgent.Status);
+            DB.AddParameter("@UpdatedAt", mThisAgent.UpdatedAt);
+            DB.AddParameter("@Price", mThisAgent.Price);
+            DB.AddParameter("@EmployeeId", mThisAgent.EmployeeId);
+
+            // Execute the stored procedure
+            DB.Execute("dbo.sproc_tblAgents_Update");
+        }
+
+        public void Delete()
+        {
+            //CONNECT TO THE DATABASE
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameter for the stored procedure
+            DB.AddParameter("@AgentId", mThisAgent.AgentId);
+            // Execute the stored procedure
+            DB.Execute("dbo.sproc_tblAgents_Delete");
+        }
+
+        public void ReportByCategory(string Category)
+        {
+            //filters the record based on a full or partial post code
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Category", Category);
+            DB.Execute("sproc_tblAgents_FilterByCategory");
+            PopulateArray(DB);
+
         }
     }
 }
