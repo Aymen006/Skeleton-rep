@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -8,10 +8,69 @@ using System.Web.UI.WebControls;
 using ClassLibrary;
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    int AgentId;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack) // Crucial: Only load data on the initial page load, not on subsequent postbacks (e.g., button clicks)
+        {
+            if (Session["AgentId"] != null)
+            {
+                int agentIdToLoad;
+                if (Int32.TryParse(Session["AgentId"].ToString(), out agentIdToLoad))
+                {
+                    LoadAgentDetails(agentIdToLoad);
+                }
+                else
+                {
+                    lblError.Text = "Invalid Agent ID format in session.";
+                    // Optionally disable form or redirect
+                }
+                // Optional: You might want to clear the session variable if it's only for one-time use,
+                // especially if this page can also be used for creating new agents.
+                // Session.Remove("AgentId");
+                // However, if you keep it, it doesn't hurt for an "edit" scenario.
+                // Storing it in hdfAgentId (as done in LoadAgentDetails) is good practice.
+            }
+            else
+            {
+                // No AgentId found in Session. This could mean the user navigated
+                // directly to AgnDataEntry.aspx or it's for creating a new agent.
+                // Handle accordingly (e.g., set page for new entry, show error, or redirect).
+                lblError.Text = "No agent selected for editing. Please go back to the list and select an agent.";
+                // DisableControls(); // A helper method to disable form fields
+            }
+        }
     }
+    private void LoadAgentDetails(int agentId)
+    {
+        clsAgent AnAgent = new clsAgent();
+        Boolean Found = AnAgent.Find(agentId); // Use your existing Find method
+
+        if (Found == true)
+        {
+            // Populate the form fields with the agent's details
+            txtAgentName.Text = AnAgent.AgentName;
+            txtDescription.Text = AnAgent.Descr;
+            txtCategory.Text = AnAgent.Category;
+            txtIntegration.Text = AnAgent.IntegrationType;
+            chkActive.Checked = AnAgent.Status;
+            txtUpdatedAt.Text = AnAgent.UpdatedAt.ToString("yyyy-MM-dd HH:mm:ss"); // Format DateTime for display
+            txtPrice.Text = AnAgent.Price.ToString("0"); // Format decimal for display (e.g., currency)
+
+            // Store the AgentId in a HiddenField. This is useful if you have
+            // "Update" or "Delete" buttons on this page, so they know which agent
+            // they are operating on without relying on Session for subsequent postbacks.
+            
+
+            lblError.Text = ""; // Clear any previous error messages
+        }
+        else
+        {
+            lblError.Text = "Agent details could not be found for the selected ID. The agent may have been deleted.";
+            // DisableControls(); // Helper method to disable form fields if agent not found
+        }
+    }
+
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)
     {
@@ -24,7 +83,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string agentName = txtAgentName.Text;
         string description = txtDescription.Text;
         string category = txtCategory.Text;
-        string integrationType = txtIntegrarion.Text;
+        string integrationType = txtIntegration.Text;
         string price = txtPrice.Text;
         string updatedAt = txtUpdatedAt.Text;
         bool status = chkActive.Checked;
@@ -41,8 +100,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Error == "")
         {
             //capture the agent properties
+            AnAgent.AgentId = AgentId;
             AnAgent.AgentName = agentName;
-            AnAgent.Description = description;
+            AnAgent.Descr = description;
             AnAgent.Category = category;
             AnAgent.IntegrationType = integrationType;
             AnAgent.Status = status;
@@ -63,12 +123,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 lblError.Text = Error;
                 return;
             }
-
-            //store the agent in the session object
-            Session["AnAgent"] = AnAgent;
-
-            //Navigate to the view page
-            Response.Redirect("AgnViewer.aspx");
+            //create a new instance of clsAgentCollection
+            clsAgentCollection AgentList = new clsAgentCollection();
+            //set the ThisAgent property
+            AgentList.ThisAgent = AnAgent;
+            //add the new record
+            AgentList.Add();
+            //redirect back to the list page
+            Response.Redirect("AgnList.aspx");
         }
         else
         {
@@ -97,13 +159,34 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtAgentName.Text = AnAgent.AgentName;
             txtDescription.Text = AnAgent.Descr;
             txtCategory.Text = AnAgent.Category;
-            txtIntegrarion.Text = AnAgent.IntegrationType;
+            txtIntegration.Text = AnAgent.IntegrationType;
             chkActive.Checked = AnAgent.Status;
             txtUpdatedAt.Text = AnAgent.UpdatedAt.ToString();
             txtPrice.Text = AnAgent.Price.ToString();
         }
             
+    }
 
+    void DisplayAgent()
+    {
+        clsAgentCollection AgentList = new clsAgentCollection();
+        AgentList.ThisAgent.Find(AgentId);
 
+        txtAgentName.Text = AgentList.ThisAgent.AgentName;
+        txtDescription.Text = AgentList.ThisAgent.Descr;
+        txtCategory.Text = AgentList.ThisAgent.Category;
+        txtIntegration.Text = AgentList.ThisAgent.IntegrationType;
+        chkActive.Checked = AgentList.ThisAgent.Status;
+        txtPrice.Text = AgentList.ThisAgent.Price.ToString();
+    }
+
+    protected void btnRetourMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AgnList.aspx");
     }
 }
