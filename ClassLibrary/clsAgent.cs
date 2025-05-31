@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ClassLibrary
 {
@@ -282,6 +282,9 @@ namespace ClassLibrary
             return Error;
         }
 
-
+        public void Find(object agentId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
