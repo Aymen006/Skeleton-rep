@@ -44,6 +44,8 @@
     <Compile Include="clsAgent.cs" />
     <Compile Include="clsAgentCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
+    <Compile Include="clsAgentBase.cs" />
+    <Compile Include="clsAgentUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
