@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstAgn.cs" />
     <Compile Include="tstAgentCollection.cs" />
+    <Compile Include="tstAgentUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
