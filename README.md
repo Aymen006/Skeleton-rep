@@ -1,99 +1,95 @@
-Project Title
-Agile-Driven Web Application with Three-Tier Architecture
+# Project Title  
+Agile Web Application Built with Three-Tier Architecture
 
-📌 Overview
-This project is a collaboratively developed web application built using Agile methodologies. The system was designed and implemented by a small development team, following iterative sprints and continuous collaboration.
-The goal of the project is to design and build a modular, scalable application with fully implemented CRUD functionality, layered architecture, and comprehensive documentation. Each team member contributed to specific system components, ensuring clean code, maintainability, and consistent design across the entire solution.
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Tech](https://img.shields.io/badge/tech-C%23%20%7C%20SQL%20Server-blue)
+![Architecture](https://img.shields.io/badge/architecture-3--Tier-orange)
 
-🛠️ Tech Stack
+---
 
-Language: C#
-Framework: ASP.NET / .NET (depending on your project—edit as needed)
-Architecture: Three-Tier Architecture
-  - Presentation Layer
-  - Business Logic Layer
-  - Data Access Layer
+## 📌 Overview
+This project is a collaboratively developed web application built using Agile development practices. The system is designed with a modular architecture, enabling each component to be developed, tested, and maintained independently. The development followed iterative sprints, with team members owning separate components while ensuring consistent structure and quality across the entire system.
 
-Database: SQL Server
-Tools & Platforms:
-  - Microsoft Visual Studio 2022
-  - Git & GitHub for version control and collaboration
-  - Enterprise Architect for system modelling
-  - SQL Server Management Studio (SSMS)
+The application implements full CRUD functionality, object-oriented design principles, and a layered approach to improve scalability, maintainability, and separation of concerns.
 
-🚀 Features
+---
 
-✔ Modular system structure using object-oriented principles
-✔ Full CRUD functionality for multiple entities
-✔ Clean separation of concerns using a three-tier architecture
-✔ Database-backed application with relational table design
-✔ Validation & error handling across layers
-✔ Version control workflow using Git (branching, merging, pull requests)
-✔ UML documentation covering system design
-✔ Test planning & validation strategy for core functionalities
+## 🛠️ Tech Stack
 
-📐 System Design
-The project includes thorough system documentation and modelling to support maintainability and scalability.
+### **Languages & Frameworks**
+- C#
+- ASP.NET / .NET Framework or .NET Core (depending on configuration)
 
-Included Documentation:
-  - Class Diagrams
-  - Entity-Relationship (ER) Diagrams
-  - Use Case Diagrams
-  - Use Case Descriptions
-  - Table Schema
-  - System Specifications
-These diagrams and documents guided development and ensured consistent understanding across the team.
+### **Architecture**
+- Three-Tier Architecture:
+  - Presentation Layer  
+  - Business Logic Layer  
+  - Data Access Layer  
 
-🏗️ Architecture
-The application is structured into three main layers:
+### **Database**
+- SQL Server
+- Relational schema design
+- Stored procedures & parameterized queries (if applicable)
 
-1. Presentation Layer
-  - User interface components
-  - Input validation
-  - Interaction with the Business Logic Layer
+### **Tools & Technologies**
+- Visual Studio 2022  
+- Git & GitHub (version control and collaboration)  
+- Enterprise Architect (UML modelling)  
+- SQL Server Management Studio (SSMS)
 
-2. Business Logic Layer (BLL)
-  - Core application logic
-  - Input processing
-  - Business rules
-  - Communication between Presentation & Data Layers
+---
 
-3. Data Access Layer (DAL)
-  - SQL queries
-  - CRUD operations
-  - Connection to SQL Server
-  - Data mapping
+## 🚀 Features
+- Full CRUD functionality for all implemented system entities  
+- Clear separation of concerns using a structured three-tier architecture  
+- Object-oriented class design  
+- Data validation and error handling across layers  
+- Database-backed functionality with SQL tables and relationships  
+- Detailed UML documentation  
+- Version control workflow using branches, commits, and pull requests  
 
-👨‍💻 Development Approach
-The project followed Agile practices:
-  - Sprint-based development
-  - Collaborative planning and refinement
-  - Peer reviews and code walkthroughs
-  - Iterative implementation
-  - Continuous integration via GitHub
-Team members individually owned different system components but collaborated frequently to maintain consistency and quality.
+---
 
-🧪 Testing
-The project includes:
-  - Test planning
-  - Validation strategies
-  - Unit tests (if applicable)
-  - Manual testing documentation
-  - Data validation across layers
+## 📐 System Documentation
 
-📦 How to Run the Project
-Clone the repository:
-git clone https://github.com/your-repo-url
+### UML Models Included
+- Class Diagrams  
+- Entity–Relationship (ER) Diagram  
+- Use Case Diagram  
+- Use Case Descriptions  
+- Table Schema Documentation  
+- System Specifications  
 
-1- Open the solution in Visual Studio 2022
-2- Set up the SQL Server database using the provided scripts
-3- Update connection strings if needed
-4- Build and run the project
+These documents were used to guide the design and development of the entire application.
 
+---
 
-🤝 Team Collaboration
-  - The application was developed through collaborative teamwork, focusing on:
-  - Shared ownership of design decisions
-  - Code consistency
-  - Regular communication
-  - Contribution via GitHub
+## 🏗️ System Architecture
+
+### **1. Presentation Layer**
+- User interface  
+- Input handling  
+- Communication with the Business Logic Layer  
+
+### **2. Business Logic Layer (BLL)**
+- Business rules and operations  
+- Data validation  
+- Processing logic  
+- Serves as the middle layer between UI and DAL  
+
+### **3. Data Access Layer (DAL)**
+- SQL queries  
+- CRUD operations  
+- Data retrieval and persistence  
+- Secure communication with SQL Server  
+
+---
+
+## 🧪 Testing
+- Test plans for core components  
+- Manual validation of user input and application workflow  
+- Data validation across all three layers  
+- Unit testing or functional testing where applicable  
+
+---
+
