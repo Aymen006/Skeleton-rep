@@ -77,10 +77,10 @@ These documents were used to guide the design and development of the entire appl
 - Processing logic  
 - Serves as the middle layer between UI and DAL  
 
-### **3. Data Access Layer (DAL)**
+### **3. Data Access Layer (DAL) **
 - SQL queries  
 - CRUD operations  
-- Data retrieval and persistence  
+- Data retrieval and persistence 
 - Secure communication with SQL Server  
 
 ---
@@ -93,3 +93,4 @@ These documents were used to guide the design and development of the entire appl
 
 ---
 
+![Image Alt](https://raw.githubusercontent.com/Aymen006/Skeleton-rep/cae52d37e8b528502f0bccb2ebb0a945b5d23a19/Screenshot%202025-05-04%20at%2017.34.53.png)
